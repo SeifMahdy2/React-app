@@ -1,0 +1,104 @@
+.register {
+  height: 100vh;
+  background-color: rgb(255, 229, 198);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .card {
+    box-shadow: 0px 0px 20px ;
+    width: 60%;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+    overflow: hidden;
+    
+    .right {
+      flex: 1;
+      background: linear-gradient(rgba(255, 214, 160, 0.5), rgba(134, 99, 1, 0.5)),
+        url(./image1.jpg)
+        center;
+      background-size: cover;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 26.8px;
+      color: white;
+      
+      .layout{
+        display:flex;
+        flex-direction: column;
+        padding-top: 30px;
+      }
+      h1 {
+        font-size: 70px;
+        line-height: 100px;
+      }
+
+      span {
+        font-size: 15px;
+        padding-bottom:5px;
+      }
+      .logbtn{
+        text-decoration: none;
+      }
+      .txtclr{
+        color:white;
+      }
+      .center{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0px 50px 0px;
+      }
+      button {
+        width: 50%;
+        padding: 10px;
+        border: none;
+        background-color: rgb(201, 172, 138);
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    .left {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: center;
+
+
+      h1 {
+      color: #555;
+      
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        
+        input {
+        border: none;
+        border-bottom: 1px solid lightgray;
+        padding: 20px 10px;
+        }
+        
+        button {
+          width: 50%;
+          padding: 10px;
+          border: none;
+          background-color: rgb(201, 173, 138);
+          color: rgb(255, 255, 255);
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
