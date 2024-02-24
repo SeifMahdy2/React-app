@@ -4,6 +4,7 @@ import "./register.scss";
 import axios from "axios";
 
 const Register = () => {
+  //register file with encripted password for more secure login
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
@@ -19,6 +20,7 @@ const Register = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
+      //axios used to post to the backend server
       await axios.post("http://localhost:3001/api/auth/register", inputs);
     } catch (err) {
       setErr(err.response.data);
@@ -31,7 +33,7 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="right">
-          <h1>Wekcome to LinkUp</h1>
+          <h1>Welcome to LinkUp</h1>
           <div className = "layout">
             <h5>Already have an account?</h5>
             <Link to="/login">

@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import moment from "moment";
 
 export const getComments = (req, res) => {
+  //retreiving the comments
   const q = `SELECT c.*, u.id AS userid, name, profilePic FROM comments AS c JOIN users AS u ON (u.id = c.userid)
     WHERE c.postid = ? ORDER BY c.createdAt DESC
     `;
@@ -14,6 +15,7 @@ export const getComments = (req, res) => {
 };
 
 export const addComment = (req, res) => {
+  //adding
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in!");
 

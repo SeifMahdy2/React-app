@@ -15,17 +15,17 @@ const Stories = () => {
     },
     {
       id: 2,
-      name: "Seif Waleed",
+      name: "Mohamed",
       img: "https://i.pinimg.com/564x/d4/b9/e2/d4b9e26d2227182276017e4a39eedaed.jpg",
     },
     {
       id: 3,
-      name: "Seif Waleed",
+      name: "Shady",
       img: "https://i.pinimg.com/564x/d4/b9/e2/d4b9e26d2227182276017e4a39eedaed.jpg",
     },
     {
       id: 4,
-      name: "Seif Waleed",
+      name: "Omar",
       img: "https://i.pinimg.com/564x/d4/b9/e2/d4b9e26d2227182276017e4a39eedaed.jpg",
     },
   ];
@@ -33,7 +33,7 @@ const Stories = () => {
   return (
     <div className="stories">
       <div className="story">
-          <img src={currentUser.profilePic} alt="" />
+          <img src={"/upload/" + currentUser.profilePic} alt="" />
           <span>{currentUser.name}</span>
           <button>+</button>
         </div>

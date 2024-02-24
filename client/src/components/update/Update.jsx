@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 export const Update = ({ setOpenUpdate, user }) => {
+  //the update window that pops up and edits the user's data
   const [cover, setCover] = useState(null);
   const [profile, setProfile] = useState(null);
   const [texts, setTexts] = useState({
@@ -46,10 +47,10 @@ export const Update = ({ setOpenUpdate, user }) => {
     e.preventDefault();    
     let coverUrl;
     let profileUrl;
-    coverUrl = cover ? await upload(cover) : user.coverPic;
     profileUrl = profile ? await upload(profile) : user.profilePic;
+    coverUrl = cover ? await upload(cover) : user.coverPic;
     
-    mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
+    mutation.mutate({ ...texts, coverPic: profileUrl , profilePic: coverUrl });
     setOpenUpdate(false);
     setCover(null);
     setProfile(null);

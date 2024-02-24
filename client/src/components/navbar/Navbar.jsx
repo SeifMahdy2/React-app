@@ -11,10 +11,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/authContext";
+import { makeRequest } from "../../axios.js";
+
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
+
+  
+
 
   return (
     <div className="navbar">
@@ -35,7 +40,18 @@ const Navbar = () => {
         </div>
       </div>
       <div className="right">
-        <PersonOutlinedIcon />
+        {currentUser && (
+          <Link to="/login">
+            <button className="logout">
+              Logout
+            </button>
+          </Link>
+        )}
+        <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+          <button>
+            <PersonOutlinedIcon />
+          </button>
+        </Link>
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
         <div className="user">

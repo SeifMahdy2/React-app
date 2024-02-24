@@ -1,5 +1,5 @@
 import mysql from "mysql";
-
+//connecting to mysql workbench
 export const db = mysql.createConnection({
   user: 'root',
   host: 'localhost',

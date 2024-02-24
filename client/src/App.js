@@ -18,6 +18,7 @@ import { AuthContext } from "./context/authContext";
 import {QueryClient,QueryClientProvider} from '@tanstack/react-query'
 
 function App() {
+  //app.js file which combines the routes and navigations with the URLs  its the whole app  
   const {currentUser} = useContext(AuthContext);
 
   const { darkMode } = useContext(DarkModeContext);
@@ -45,7 +46,6 @@ function App() {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
-
     return children;
   };
 

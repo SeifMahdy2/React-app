@@ -12,6 +12,7 @@ const Share = () => {
 
   const upload = async () => {
     try {
+      //uploading the photos as files from your pc adn gets saved in the uploads file then later read 
       const formData = new FormData();
       formData.append("file", file);
       const res = await makeRequest.post("/upload", formData);
@@ -20,7 +21,7 @@ const Share = () => {
       console.log(err);
     }
   };
-
+  //setting the current user to navigate and show posts for that user
   const { currentUser } = useContext(AuthContext);
 
   const queryClient = useQueryClient();

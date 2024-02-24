@@ -32,7 +32,6 @@ const Profile = () => {
     queryFn: () => makeRequest.get("relationships?followedUserid="+userid).then((res) => {return res.data})
   });  
 
-  console.log(relationshipData);
 
 
   const queryClient = useQueryClient();
@@ -61,7 +60,6 @@ const Profile = () => {
         <img src={"/upload/"+data.coverPic} alt="" className="cover" />
         <img src={"/upload/"+data.profilePic} alt="" className="profilePic" />
       </div>
-      <div>jj</div>
       <div className="profileContainer">
         <div className="uInfo">
           <div className="left">

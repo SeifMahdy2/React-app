@@ -14,6 +14,7 @@ import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 
 
 const Post = ({ post }) => {
+  //post file is for each individual post 
   const [commentOpen, setCommentOpen] = useState(false);
   const [menuOpen, setmenuOpen] = useState(false);
 
@@ -21,6 +22,7 @@ const Post = ({ post }) => {
 
 
   const { data } = useQuery({
+    //getting their likes and adding or removing them
     queryKey: ["likes",post.id],
     queryFn: () => makeRequest.get("/likes?postid="+post.id).then((res) => {return res.data})
   });
@@ -70,9 +72,10 @@ const Post = ({ post }) => {
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={post.profilePic} alt="" />
+            <img src={"/upload/"+post.profilePic} alt="" />
             <div className="details">
               <Link
+              //navigates to the user's profile when clicking his name on the post
                 to={`/profile/${post.userid}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
@@ -81,8 +84,10 @@ const Post = ({ post }) => {
               <span className="date">{moment(post.createAt).fromNow()}</span>
             </div>
           </div>
-          <MoreHorizIcon onClick={()=>setmenuOpen(!menuOpen)}/>
-          _{menuOpen&& <button onClick={handleDelete}>Delete</button>}
+          <MoreHorizIcon onClick={() => setmenuOpen(!menuOpen)} />
+          {menuOpen && post.userid === currentUser.id && (
+            <button onClick={handleDelete}>delete</button>
+          )}
         </div>
         <div className="content">
           <p>{post.desc}</p>
@@ -99,7 +104,7 @@ const Post = ({ post }) => {
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <TextsmsOutlinedIcon />
-            12 Comments
+            Comments
           </div>
           <div className="item">
             <ShareOutlinedIcon />

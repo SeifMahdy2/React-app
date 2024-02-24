@@ -6,6 +6,7 @@ import { makeRequest } from "../../axios.js";
 import moment from "moment";
 
 const Comments = ({ postid }) => {
+  //this file is the frontend for the comments which displays them and sends them to the backend and the database
   const [desc, setDesc] = useState("");
   const { currentUser } = useContext(AuthContext);
   const queryClient = useQueryClient();

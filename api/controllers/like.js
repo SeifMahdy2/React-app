@@ -1,6 +1,7 @@
 import { db } from "../connect.js";
 import jwt from "jsonwebtoken";
 export const getLikes = (req,res)=>{
+      //getting the likes by the postid from the database
       const q = "SELECT userid FROM likes WHERE postid = ?";
       db.query(q, [req.query.postid],(err,data)=>{
             if(err) return res.status(500).json(err);
@@ -9,6 +10,7 @@ export const getLikes = (req,res)=>{
 }
 
 export const addLike = (req, res) => {
+      //adding a like
       const token = req.cookies.accessToken;
       if (!token) return res.status(401).json("Not logged in!");
     
@@ -29,6 +31,7 @@ export const addLike = (req, res) => {
     };
 
 export const deleteLike = (req, res) => {
+      //removing a like 
       const token = req.cookies.accessToken;
       if (!token) return res.status(401).json("Not logged in!");
       jwt.verify(token, "secretkey", (err, userInfo) => {

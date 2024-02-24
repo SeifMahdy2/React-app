@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
-// import axios from "axios";
 import "./login.scss";
 
 const Login = () => {
+  //login page for login with credentials 
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
